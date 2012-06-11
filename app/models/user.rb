@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   acts_as_tagger
   has_secure_password
-  has_many :articles
+  has_many :articles, :dependent => :destroy #dependent option avoids dangling database dependencies
   
   validates_uniqueness_of :user_name
   
